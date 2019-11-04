@@ -1,8 +1,8 @@
 /*Простой калькулятор с проверками и простой защитой от краша.
-ВАЖНО: Это версия для Visual Studio (2019), т.е. для Винды
+ВАЖНО: Эта версия для винды :)
 Плюсы:
 - Язык С++
-- Фиксы для Windows
+- Поддержка русского языка
 - Есть цикл
 - Есть корень
 - Не уходит в бесконечный цикл при буквах
@@ -15,6 +15,7 @@
 */
 
 #include <iostream>
+#include <clocale>
 #include <cmath>
 #include <cstdlib>
 #include <dos.h>
@@ -55,7 +56,7 @@ char email[64] = "doshikplayer@gmail.com";
 char vkcom[64] = "vk.com/winsomequill";
 
 //-----------------------[Версия]-----------------------//
-char version[32] = "Pre-Release Version 1.2.0.7";
+char version[64] = "Pre-Release Version 1.2.0.7 (Windows)";
 
 //-----------------------[Выход в отдельном коде]-----------------------//
 int exit()
@@ -81,8 +82,9 @@ void warning()
 }
 
 //-----------------------[Главный код]-----------------------//
-int main()
+int main(int argc, char* argv[])
 {
+	setlocale(LC_CTYPE, "rus"); // настройка локальной функции
 	while (en != 0) //цикл
 	{
 
