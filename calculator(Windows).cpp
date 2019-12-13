@@ -28,12 +28,12 @@ using namespace std;
 
 //-----------------------[Переменные]-----------------------//
 char line[64]; //начальная переменная
-char calc[] = "calc";
-char ex[] = "exit";
-char vers[] = "version";
-char ver[] = "ver";
-char dis[] = "discr";
-char deb[] = "debug";
+const char calc[] = "calc";
+const char ex[] = "exit";
+const char vers[] = "version";
+const char dis[] = "discr";
+const char deb[] = "debug";
+const char clearconsole[] = "clear";
 int en = 1; //нужна для работы цикла
 int koren = 1;
 float aa, cc, dd, ee; //числа
@@ -52,24 +52,23 @@ bool is_number(const std::string& s)
 }
 
 //-----------------------[Контакты]-----------------------//
-char email[64] = "doshikplayer@gmail.com";
-char vkcom[64] = "vk.com/winsomequill";
+const char email[64] = "doshikplayer@gmail.com";
+const char vkcom[64] = "vk.com/winsomequill";
 
 //-----------------------[Версия]-----------------------//
-char version[64] = "Pre-Release Version 1.2.0.7 (Windows)";
+const char version[64] = "Pre-Release Version 1.2.0.7 (Windows)";
 
 //-----------------------[Выход в отдельном коде]-----------------------//
-int exit()
+void exit()
 {
 	cout << "Завершаем процесс..." << endl;
 	aa = bb = cc = dd = ee = a = b = c = x = 0;
 	cout << "Переменные очищены!" << endl;
 	cout << "Процесс завершен!" << endl;
 	en = 0;
-	return 0;
 }
 
-//-----------------------[Очистка в отдельном коде]-----------------------//
+//-----------------------[Чистка переменных в отдельном коде]-----------------------//
 void clear()
 {
 	aa = bb = cc = dd = ee = a = b = c = x = 0;
@@ -91,6 +90,7 @@ int main(int argc, char* argv[])
 		cout << "calc - калькулятор" << endl;
 		cout << "discr - дискриминант" << endl;
 		cout << "version - версия программы" << endl;
+		cout << "clear - очистить консоль" << endl;
 		cout << "debug - debug" << endl;
 		cout << "exit - выход \n" << endl;
 		cin >> line;
@@ -100,6 +100,14 @@ int main(int argc, char* argv[])
 		{
 			cout << "Все переменые равны 1\n" << endl;
 			aa = bb = cc = dd = ee = a = b = c = x = 1;
+		}
+
+		if (strcmp(line, clearconsole) == 0)
+		{
+			for (int l = 0; l < 80; l++)
+			{
+				cout << "\n" << endl;
+			}
 		}
 
 		if (strcmp(line, ex) == 0)
